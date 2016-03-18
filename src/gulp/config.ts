@@ -31,6 +31,6 @@ export const typescript = {
     ],
     watch: [
         `${resources}*.ts`,
-        `${resources}**/*.ts`
+        `${resources}**/*.ts`,
     ]
 };
