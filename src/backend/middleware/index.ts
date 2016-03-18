@@ -1,10 +1,8 @@
-'use strict';
-
+import {logger} from './logger';
+import {notFound} from './not-found-handler';
 const handler = require('feathers-errors/handler');
-const notFound = require('./not-found-handler');
-const logger = require('./logger');
 
-module.exports = function() {
+export const middleware = function() {
     // Add your custom middleware here. Remember, that
     // just like Express the order matters, so error
     // handling middleware should go last.

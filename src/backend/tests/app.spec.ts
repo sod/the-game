@@ -1,8 +1,6 @@
-'use strict';
-
+import {app} from '../app';
 const assert = require('assert');
 const request = require('request');
-const app = require('../src/app');
 
 describe('Feathers application tests', () => {
     before(function(done) {
@@ -16,7 +14,7 @@ describe('Feathers application tests', () => {
 
     it('starts and shows the index page', done => {
         request('http://localhost:3030', (err, res, body) => {
-            assert.ok(body.indexOf('<html>') !== -1);
+            assert.ok(body.indexOf('<body>') !== -1);
             done(err);
         });
     });

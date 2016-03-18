@@ -1,5 +1,5 @@
-'use strict';
-
+import {services} from './services/index';
+import {middleware} from './middleware/index';
 const path = require('path');
 const serveStatic = require('feathers').static;
 const favicon = require('serve-favicon');
@@ -9,14 +9,12 @@ const feathers = require('feathers');
 const configuration = require('feathers-configuration');
 const hooks = require('feathers-hooks');
 const socketio = require('feathers-socketio');
-const middleware = require('./middleware');
-const services = require('./services');
 
-const app = feathers();
+export const app = feathers();
 
-app.configure(configuration(path.join(__dirname, '..')));
+app.configure(configuration(path.join(__dirname, '..', '..')));
 
-app.use(compress())
+app.use(compress({}))
     .options('*', cors())
     .use(cors())
     .use(favicon(path.join(app.get('public'), 'favicon.ico')))
@@ -25,5 +23,3 @@ app.use(compress())
     .configure(socketio())
     .configure(services)
     .configure(middleware);
-
-module.exports = app;

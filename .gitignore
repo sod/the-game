@@ -1,3 +1,10 @@
+# runtime
 .idea
 node_modules
+typings
+
+# exclude
 data
+
+# files
+npm-debug.log

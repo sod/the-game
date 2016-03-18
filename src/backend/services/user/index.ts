@@ -1,11 +1,9 @@
-'use strict';
-
+import {hooks} from './hooks/index';
 const path = require('path');
 const NeDB = require('nedb');
 const service = require('feathers-nedb');
-const hooks = require('./hooks');
 
-module.exports = function() {
+export const user = function() {
     const app = this;
 
     const db = new NeDB({

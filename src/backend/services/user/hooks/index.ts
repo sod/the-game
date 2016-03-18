@@ -1,10 +1,8 @@
-'use strict';
-
 const globalHooks = require('../../../hooks');
-const hooks = require('feathers-hooks');
+const feathersHooks = require('feathers-hooks');
 const auth = require('feathers-authentication').hooks;
 
-exports.before = {
+const before = {
     all: [],
     find: [
         auth.verifyToken(),
@@ -36,12 +34,17 @@ exports.before = {
     ]
 };
 
-exports.after = {
-    all: [hooks.remove('password')],
+const after = {
+    all: [feathersHooks.remove('password')],
     find: [],
     get: [],
     create: [],
     update: [],
     patch: [],
     remove: []
+};
+
+export const hooks = {
+    before,
+    after
 };

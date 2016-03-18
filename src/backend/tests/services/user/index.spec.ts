@@ -1,7 +1,5 @@
-'use strict';
-
+import {app} from '../../../app';
 const assert = require('assert');
-const app = require('../../../src/app');
 
 describe('user service', () => {
     it('registered the users service', () => {
