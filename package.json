@@ -31,6 +31,7 @@
     "feathers-hooks": "^1.5.0",
     "feathers-nedb": "^2.2.2",
     "feathers-socketio": "^1.3.3",
+    "jspm": "^0.17.0-beta.11",
     "nedb": "^1.8.0",
     "passport": "^0.3.2",
     "serve-favicon": "^2.3.0",
@@ -42,5 +43,18 @@
   "devDependencies": {
     "mocha": "^2.4.5",
     "request": "^2.69.0"
+  },
+  "jspm": {
+    "name": "the-game",
+    "directories": {
+      "packages": "public/jspm_packages"
+    },
+    "configFiles": {
+      "jspm:browser": "public/js/jspm.browser.js",
+      "jspm": "public/js/jspm.config.js"
+    },
+    "configFile": "public/js/jspm.config.js",
+    "dependencies": {},
+    "devDependencies": {}
   }
 }

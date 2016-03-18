@@ -5,6 +5,7 @@ typings
 
 # exclude
 data
+public/jspm_packages
 
 # files
 npm-debug.log
