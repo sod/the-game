@@ -1,8 +1,9 @@
 SystemJS.config({
   packages: {
-    "the-game": {
-      "format": "esm",
-      "main": "frontend.js"
+    game: {
+      format: 'cjs',
+      main: 'frontend.js',
+      defaultExtension: 'js'
     }
   }
 });

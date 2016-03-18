@@ -10,5 +10,10 @@
     <script src="/jspm_packages/system.src.js"></script>
     <script src="/js/jspm.browser.js"></script>
     <script src="/js/jspm.config.js"></script>
+    <script>
+        System.import('game').catch(function(error) {
+            window.console && console.log(error.message, error.stack);
+        });
+    </script>
 </body>
 </html>
