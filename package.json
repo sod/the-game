@@ -63,7 +63,14 @@
       "jspm": "public/js/jspm.config.js"
     },
     "configFile": "public/js/jspm.config.js",
-    "dependencies": {},
-    "devDependencies": {}
+    "dependencies": {
+      "phaser": "github:photonstorm/phaser@^2.4.6"
+    },
+    "devDependencies": {},
+    "overrides": {
+      "github:photonstorm/phaser@2.4.6": {
+        "format": "global"
+      }
+    }
   }
 }

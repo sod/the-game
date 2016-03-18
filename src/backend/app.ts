@@ -1,7 +1,7 @@
 import {services} from './services/index';
 import {middleware} from './middleware/index';
 const path = require('path');
-const serveStatic = require('feathers').static;
+const serveStatic: Function = require('feathers').static;
 const favicon = require('serve-favicon');
 const compress = require('compression');
 const cors = require('cors');
@@ -18,6 +18,7 @@ app.use(compress({}))
     .options('*', cors())
     .use(cors())
     .use(favicon(path.join(app.get('public'), 'favicon.ico')))
+    .use('/public', serveStatic(app.get('public')))
     .use('/', serveStatic(app.get('public')))
     .configure(hooks())
     .configure(socketio())

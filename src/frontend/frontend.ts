@@ -1,3 +1,2 @@
-import {example} from './service/example';
-
-console.log(example);
+import './vendor'
+import './game/bootstrap'

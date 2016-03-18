@@ -1,6 +1,7 @@
 SystemJS.config({
   baseURL: "/",
   paths: {
-    "game/": "compiled/"
+    "game/": "public/compiled/",
+    "github:*": "public/jspm_packages/github/*"
   }
 });
