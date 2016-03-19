@@ -7,3 +7,7 @@ export const canvas = {
     width: () => window.innerWidth,
     height: () => window.innerHeight
 };
+
+export const resolution = function() {
+    return window.devicePixelRatio;
+};

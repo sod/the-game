@@ -1,4 +1,4 @@
-import {canvas, bounds} from './environment';
+import {canvas, bounds, resolution} from './environment';
 import {update} from './loop/update';
 import {render, onRenderDebug} from './loop/render';
 
@@ -10,15 +10,24 @@ export const createGame = function(onCreate: (game: Phaser.Game) => any) {
         onCreate(game);
     };
 
-    const game = new Phaser.Game(canvas.width(), canvas.height(), Phaser.WEBGL, 'game', {
-        // preload: preload,
-        create: create,
-        update: update,
-        render: render
+    const game = new Phaser.Game(<any>{
+        width: canvas.width(),
+        height: canvas.height(),
+        renderer: Phaser.CANVAS,
+        parent: 'game',
+        antialias: true,
+        resolution: resolution(),
+        state: {
+            create: create,
+            update: update,
+            render: render
+        }
     });
 
     onRenderDebug.add(function() {
         game.debug.cameraInfo(game.camera, 32, 32);
+        game.debug.lineHeight = 32;
+        game.debug.font = '26px Arial';
     });
 
     return game;

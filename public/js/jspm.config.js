@@ -1,9 +1,9 @@
 SystemJS.config({
   packages: {
-    'game': {
-      'format': 'cjs',
-      'main': 'frontend.js',
-      'defaultExtension': 'js'
+    game: {
+      format: 'cjs',
+      main: 'bootstrap',
+      defaultExtension: 'js'
     }
   }
 });
