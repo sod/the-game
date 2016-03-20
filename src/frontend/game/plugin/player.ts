@@ -1,15 +1,19 @@
-import {onRenderDebug} from '../loop/render';
-import {onUpdate} from '../loop/update';
 import {canvas, real} from '../environment';
 
-export const player = function(game: Phaser.Game) {
-    const player = game.add.sprite(game.world.centerX, game.world.centerY, 'player');
-    game.physics.p2.enable(player);
-    const body: Phaser.Physics.P2.Body = <any>player.body;
-    const cursors = game.input.keyboard.createCursorKeys();
-    game.camera.follow(player);
+export const Player = function(game: Phaser.Game) {
+    let body: Phaser.Physics.P2.Body;
+    let player: Phaser.Sprite;
+    let cursors;
 
-    onUpdate.add(function() {
+    this.create = function() {
+        player = game.add.sprite(game.world.centerX, game.world.centerY, 'player');
+        game.physics.p2.enable(player);
+        body = <any>player.body;
+        cursors = game.input.keyboard.createCursorKeys();
+        game.camera.follow(player);
+    };
+
+    this.update = function() {
         body.setZeroVelocity();
 
         if (cursors.up.isDown) {
@@ -25,11 +29,9 @@ export const player = function(game: Phaser.Game) {
         else if (cursors.right.isDown) {
             body.moveRight(300);
         }
-    });
+    };
 
-    onRenderDebug.add(function() {
+    this.render = function() {
         game.debug.spriteCoords(player, 32, real.height(canvas.height()) - real.height(50), 'black');
-    });
-
-    return player;
+    };
 };
