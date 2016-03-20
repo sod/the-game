@@ -1,16 +1,13 @@
 export const _PluginTemplate = function(game: Phaser.Game) {
-    this.preload = function() {
-    };
+    /* preload images here in the constructor */
 
-    this.create = function() {
+    this.init = function() {
+        /* init plugin here */
     };
 
     this.update = function() {
     };
 
     this.render = function() {
-    };
-
-    this.renderDebug = function() {
     };
 };

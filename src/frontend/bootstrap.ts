@@ -1,15 +1,22 @@
-import './vendor';
 import {createGame} from './game/game';
 import {World} from './game/plugin/World';
-import {Player} from './game/plugin/player';
-import {State} from './game/utility/state';
-import {PluginContainer} from './game/utility/plugin-container';
+import {Player} from './game/plugin/Player';
+import {preload} from './game/utility/preload';
+import './vendor';
 
 const game = createGame();
-const plugins = new PluginContainer();
-const state = new State('default', plugins);
 
-plugins.add(new World(game));
-plugins.add(new Player(game));
+(<any>game).device.whenReady(function() {
+    const plugins = [];
 
-state.start(game);
+    preload(game, function() {
+        plugins.push(new World(game));
+        plugins.push(new Player(game));
+    }, function() {
+        plugins.forEach(function(plugin) {
+            game.plugins.add(plugin);
+        });
+    });
+});
+
+(<any>window).game = game;

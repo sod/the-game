@@ -1,11 +1,9 @@
 import {bounds} from '../environment';
 
 export const World = function(game: Phaser.Game) {
-    this.preload = function() {
-        game.load.image('background', 'public/asset/background/rockywall.png');
-    };
+    game.load.image('background', 'public/asset/background/rockywall.png');
 
-    this.create = function() {
+    this.init = function() {
         game.add.tileSprite(0, 0, bounds.width(), bounds.height(), 'background');
         game.world.setBounds(0, 0, bounds.width(), bounds.height());
         game.physics.startSystem(Phaser.Physics.P2JS);
@@ -15,7 +13,7 @@ export const World = function(game: Phaser.Game) {
         game.debug.font = '26px Arial';
     };
 
-    this.renderDebug = function() {
+    this.render = function() {
         game.debug.cameraInfo(game.camera, 32, 32, 'black');
     };
 };

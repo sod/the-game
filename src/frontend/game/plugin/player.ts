@@ -5,7 +5,7 @@ export const Player = function(game: Phaser.Game) {
     let player: Phaser.Sprite;
     let cursors;
 
-    this.create = function() {
+    this.init = function() {
         player = game.add.sprite(game.world.centerX, game.world.centerY, 'player');
         game.physics.p2.enable(player);
         body = <any>player.body;
@@ -31,7 +31,7 @@ export const Player = function(game: Phaser.Game) {
         }
     };
 
-    this.renderDebug = function() {
+    this.render = function() {
         game.debug.spriteCoords(player, 32, real.height(canvas.height()) - real.height(50), 'black');
     };
 };
