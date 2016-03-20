@@ -1,12 +1,21 @@
 import {canvas, bounds, resolution} from './environment';
-import {update} from './loop/update';
 import {render, onRenderDebug} from './loop/render';
+import {update} from './loop/update';
 
 export const createGame = function(onCreate: (game: Phaser.Game) => any) {
+    const preload = function() {
+        game.load.image('background', 'public/asset/background/rockywall.png');
+    };
+
     const create = function() {
         game.add.tileSprite(0, 0, bounds.width(), bounds.height(), 'background');
         game.world.setBounds(0, 0, bounds.width(), bounds.height());
         game.physics.startSystem(Phaser.Physics.P2JS);
+
+        game.debug.renderShadow = false;
+        game.debug.lineHeight = 32;
+        game.debug.font = '26px Arial';
+
         onCreate(game);
     };
 
@@ -15,9 +24,10 @@ export const createGame = function(onCreate: (game: Phaser.Game) => any) {
         height: canvas.height(),
         renderer: Phaser.CANVAS,
         parent: 'game',
-        antialias: true,
+        antialias: false,
         resolution: resolution(),
         state: {
+            preload: preload,
             create: create,
             update: update,
             render: render
@@ -25,9 +35,7 @@ export const createGame = function(onCreate: (game: Phaser.Game) => any) {
     });
 
     onRenderDebug.add(function() {
-        game.debug.cameraInfo(game.camera, 32, 32);
-        game.debug.lineHeight = 32;
-        game.debug.font = '26px Arial';
+        game.debug.cameraInfo(game.camera, 32, 32, 'black');
     });
 
     return game;

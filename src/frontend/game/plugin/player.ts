@@ -1,7 +1,8 @@
-import {onRenderDebug} from './loop/render';
-import {onUpdate} from './loop/update';
+import {onRenderDebug} from '../loop/render';
+import {onUpdate} from '../loop/update';
+import {canvas, real} from '../environment';
 
-export const createPlayer = function(game: Phaser.Game) {
+export const player = function(game: Phaser.Game) {
     const player = game.add.sprite(game.world.centerX, game.world.centerY, 'player');
     game.physics.p2.enable(player);
     const body: Phaser.Physics.P2.Body = <any>player.body;
@@ -27,7 +28,7 @@ export const createPlayer = function(game: Phaser.Game) {
     });
 
     onRenderDebug.add(function() {
-        game.debug.spriteCoords(player, 32, 500);
+        game.debug.spriteCoords(player, 32, real.height(canvas.height()) - real.height(50), 'black');
     });
 
     return player;
