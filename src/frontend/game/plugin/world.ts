@@ -15,7 +15,7 @@ export const World = function(game: Phaser.Game) {
         game.debug.font = '26px Arial';
     };
 
-    this.render = function() {
+    this.renderDebug = function() {
         game.debug.cameraInfo(game.camera, 32, 32, 'black');
     };
 };

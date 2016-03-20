@@ -1,36 +1,23 @@
-const delegate = function(key, array) {
-    array.forEach(function(object) {
-        if (object[key]) {
-            object[key]();
-        }
-    });
-};
-
-export const State = function(name) {
-    const plugins = new Set;
-
-    this.addPlugin = function(plugin) {
-        plugins.add(plugin)
-    };
-
+export const State = function(name, pluginContainer) {
     this.start = function(game: Phaser.Game) {
         game.state.add(name, this);
         game.state.start(name);
     };
 
     this.preload = function() {
-        delegate('preload', plugins);
+        pluginContainer.invoke('preload');
     };
 
     this.create = function() {
-        delegate('create', plugins);
+        pluginContainer.invoke('create');
     };
 
     this.update = function() {
-        delegate('update', plugins);
+        pluginContainer.invoke('update');
     };
 
     this.render = function() {
-        delegate('render', plugins);
+        pluginContainer.invoke('render');
+        pluginContainer.invoke('renderDebug');
     };
 };

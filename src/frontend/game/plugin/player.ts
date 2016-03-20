@@ -31,7 +31,7 @@ export const Player = function(game: Phaser.Game) {
         }
     };
 
-    this.render = function() {
+    this.renderDebug = function() {
         game.debug.spriteCoords(player, 32, real.height(canvas.height()) - real.height(50), 'black');
     };
 };
