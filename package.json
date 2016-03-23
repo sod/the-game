@@ -18,7 +18,7 @@
   },
   "scripts": {
     "test": "mocha --require src/shared/ts-register src/backend/**/*.spec.ts --recursive",
-    "start": "node src/backend/index.js",
+    "start": "ts-node --disableWarnings src/backend/index.ts",
     "postinstall": "typings install; jspm install; gulp build"
   },
   "dependencies": {

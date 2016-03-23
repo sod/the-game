@@ -1,6 +1,4 @@
-require('../shared/ts-register');
-
-var app = require('./app').app;
+import {app} from './app';
 var port = app.get('port');
 var server = app.listen(port);
 
