@@ -5,6 +5,7 @@ require('ts-node').register({
 var tasks = [
     'help',
     'typescript',
+    'jspm',
     'build',
     'watch'
 ];

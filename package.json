@@ -19,7 +19,7 @@
   "scripts": {
     "test": "mocha --require ts-node/register src/backend/**/*.spec.ts --recursive",
     "start": "node src/backend/index.js",
-    "postinstall": "typings install"
+    "postinstall": "typings install; jspm install; gulp build"
   },
   "dependencies": {
     "bluebird": "^3.3.4",
@@ -36,6 +36,7 @@
     "gulp": "^3.9.1",
     "gulp-help": "^1.6.1",
     "gulp-plumber": "^1.1.0",
+    "gulp-shell": "^0.5.2",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-typescript": "^2.12.1",
     "gulp-util": "^3.0.7",

@@ -34,3 +34,12 @@ export const typescript = {
         `${resources}**/*.ts`,
     ]
 };
+
+export const jspm = {
+    build: {
+        source: `js/application/vendor`,
+        destination: `${output}compiled/vendor-build.js`
+    },
+    link: `${resources}node_modules`,
+    watch: `${resources}js/application/vendor.ts`
+};

@@ -35,7 +35,7 @@ gulp.task('typescript:clean', function() {
     return Promise.all(<PromiseLike[]>config.clean.map(glob => remove(glob)));
 });
 
-gulp.task('typescript:build', ['typescript:clean'], function() {
+gulp.task('typescript:build', ['typescript:clean', 'jspm:link'], function() {
     const {source, destination, base, compileroptions, typedefFile} = config.build;
     const project = createProject(compileroptions);
 
