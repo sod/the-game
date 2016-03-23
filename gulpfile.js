@@ -1,6 +1,4 @@
-require('ts-node').register({
-    disableWarnings: true
-});
+require('./src/shared/ts-register');
 
 var tasks = [
     'help',

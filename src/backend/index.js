@@ -1,6 +1,4 @@
-require('ts-node').register({
-    disableWarnings: true
-});
+require('../shared/ts-register');
 
 var app = require('./app').app;
 var port = app.get('port');

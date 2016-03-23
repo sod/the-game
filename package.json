@@ -17,7 +17,7 @@
     "node": ">= 0.12.0"
   },
   "scripts": {
-    "test": "mocha --require ts-node/register src/backend/**/*.spec.ts --recursive",
+    "test": "mocha --require src/shared/ts-register src/backend/**/*.spec.ts --recursive",
     "start": "node src/backend/index.js",
     "postinstall": "typings install; jspm install; gulp build"
   },
